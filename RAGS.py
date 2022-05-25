@@ -18,6 +18,7 @@ import math
 import os
 #import sys, pdb
 #import pdb
+import pdb
 
 import tkinter.ttk
 
@@ -94,7 +95,8 @@ def plot_object(specid_, ra_, dec_, z_match1,Imag,Imag_error, passed):
     matplotlib.rcParams['keymap.save'] ='x'
 
     # read the img
-    sci = 'master_files/hlsp_candels_hst_wfc3_gs-tot_f160w_v1.0_drz.fits'
+    #sci = 'master_files/hlsp_candels_hst_wfc3_gs-tot_f160w_v1.0_drz.fits'
+    sci = 'master_files/hlsp_candels_hst_wfc3_gn-tot-60mas_f160w_v1.0_drz_nosip.fits'  # north nosip
     img = fits.open(sci)
     header = img[0].header
     data = img[0].data
@@ -105,11 +107,15 @@ def plot_object(specid_, ra_, dec_, z_match1,Imag,Imag_error, passed):
     wcs_sol = WCSa(sci)
     y1, x1 = wcs_sol.wcs_world2pix(ra, dec, 0)
     w = WCSa(header)
+
     mnimg = np.mean(data[int(x1 - 10):int(x1 + 10), int(y1 - 10):int(y1 + 10)])
     # spec=fits.open('TESTSPEC/h_udf_wfc_id'+str(specid_)+'.fits')
-    spec = fits.open('h_pears_total_south/h_pears_s_id' + str(specid_) + '.fits')
+    spec = fits.open('h_pears_total_north/h_pears_n_id' + str(specid_) + '.fits')
 
     wave, flux, ferror = spec[1].data['LAMBDA'], spec[1].data['FLUX'], spec[1].data['FERROR']
+    #if len(wave) == 0:
+     #   wave, flux, ferror = spec[2].data['LAMBDA'], spec[2].data['FLUX'], spec[2].data['FERROR']
+
     headp = spec[1].header
     posange = float(headp['POSANG'].split('A')[1])
     spec.close()
@@ -165,7 +171,7 @@ def plot_object(specid_, ra_, dec_, z_match1,Imag,Imag_error, passed):
             # turned off but might be useful
             # plt.fill_between([rsline-500,rsline+500],[np.min(flux),np.min(flux)],[np.max(flux),np.max(flux)],color='g',alpha=0.1)
             plt.subplots_adjust(right=1.1)
-            fig.tight_layout()
+            #fig.tight_layout()
 
             os.remove('ID_' + specid_ + '_cutout_F160W.fits')
 
@@ -211,26 +217,26 @@ def get_galaxies(file):
     ObjectID, RA, DEC, z_match, Imag, Imag_error = [], [], [], [], [], []
     with open(file, "r") as file:
         Lines = file.readlines()
-        start, c = 0, 0
+        start = False
+        c =  0
         for line in Lines:
             line = str.split((line))
 
-            if (start > 0):
+            if starting_point[0] == "O" and line[0][0] == 'O':  # This is the starting point of new file with nothing in it
+                start = True
+                print("starting from beginning")
+
+            elif starting_point == line[0]:
+                print("We last left off at --> ", line[0])
+                start = True
+            elif start:
                 ObjectID.append(line[0])
                 RA.append(line[1])
                 DEC.append(line[2])
                 z_match.append(line[3])
                 Imag.append(line[4])
                 Imag_error.append(line[5])
-                c+=1
-
-            elif (starting_point[0] == "O"):  # This is the starting point of new file with nothing in it
-                start = 1
-                print("starting from beginning")
-
-            elif (starting_point == line[0]):
-                start = 1
-                print("We last left off at --> ", line[0])
+                c += 1
 
         file.close()
 
@@ -245,9 +251,9 @@ def inspect_objs():
     label_directions = Label(text="Click 'a' for yes,  'n' for no  and 's' for maybe", font=("Times", 20))
     label_directions.grid(row=1, sticky=W)
 
-    objid_unique, racks, dacks, zacks, Imag, Imag_error, c = get_galaxies("RAGS_input_dir/south_spectrum_matches.dat")
+    objid_unique, racks, dacks, zacks, Imag, Imag_error, c = get_galaxies("RAGS_input_dir/north_spectrum_matches.dat")
 
-    speclist = "RAGS_input_dir/south_spectrum_matches.input"
+    speclist = "RAGS_input_dir/north_spectrum_matches.input"
     fins = ascii.read(speclist, names=['fnm'])
 
     donefile = 'done_%s' % user_name
@@ -287,7 +293,6 @@ def inspect_objs():
 
         #next_obj = remaining_objects[0]
         current_object = objid_unique[k]
-        print(k, current_object)
 
         tpl = [objid_unique[k], racks[k], dacks[k], zacks[k], Imag[k], Imag_error[k]]
 
@@ -430,7 +435,7 @@ def get_user():
     hide_widget(user_name_button)
     hide_widget((user_name))
 
-    file_exists('users/south_Classification_%s.txt' %write_name)
+    file_exists('users/north_Classification_%s.txt' %write_name)
 
     inspect_object.grid(row=0,column =0, pady=20)
 
@@ -470,7 +475,7 @@ def write_to_file(tpl, classification):
     canvas.get_tk_widget().grid_remove()
     window.update()
 
-    user_file = open(('users/south_Classification_%s.txt' % write_name), "a+")
+    user_file = open(('users/north_Classification_%s.txt' % write_name), "a+")
     user_file.write(str(line))
     user_file.write("\n")
     user_file.close()
