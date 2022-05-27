@@ -3,21 +3,19 @@ Rapid Assessment of Galaxy Spectra
 
 Setup:
 
-0. Click on click link. 
+1. Click green code button. 
 
-Click green code button. 
+2. Download zip. 
 
-Download zip. 
+3. On mac click or find the terminal in apps. 
 
-On mac click or find the terminal in apps. 
+4. enter command cd Downloads
 
-enter cd Downloads
+5. enter command ls
 
-do ls
+6. see that the zip folder is there.
 
-see that the zip folder is there.
-
-unzip by doing the command unzip "folder name"
+7. unzip file by doing the command unzip "folder name"
 
 Before Classifying
 
