@@ -13,7 +13,7 @@ Setup:
 
 Before Classifying
 
-1. Email: michael.rutkowski@mnsu.edu to get pears_south_tar.gz, pears_north_tar.gz and hlsp_candels_hst_wfc3_gs-tot_f160w_v1.0_drz.fits
+1. Grab these files below from these links: h_pears_south.tar.gz  hlsp_candels_hst_wfc3_gs-tot_f160w_v1.0_drz.fits
 
 2. Move pears_south_tar.gz from downloads folder to h_pears_total_south in the RAGS_public_main folder
 
