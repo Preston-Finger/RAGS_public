@@ -62,7 +62,6 @@ https://mnscu-my.sharepoint.com/:u:/g/personal/vd3712rv_minnstate_edu/ERrASBQm1O
 
 2. This file has the ObjectID, RA, DEC, z_match, Imag, Imag_error, and Classification you assigned. 
 
-3. Send this file to --> ________________
-
+3. Send this file to ---> michael.rutkowski@mnsu.edu
 
 Thank you
