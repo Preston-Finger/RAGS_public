@@ -13,7 +13,10 @@ Setup:
 
 Before Classifying
 
-1. Grab these files below from these links: h_pears_south.tar.gz  hlsp_candels_hst_wfc3_gs-tot_f160w_v1.0_drz.fits
+1. Grab these files below from these links: 
+https://mnscu-my.sharepoint.com/personal/vd3712rv_minnstate_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fvd3712rv%5Fminnstate%5Fedu%2FDocuments%2Fh%5Fpears%5Fsouth%2Etar%2Egz&parent=%2Fpersonal%2Fvd3712rv%5Fminnstate%5Fedu%2FDocuments&ga=1
+and 
+https://mnscu-my.sharepoint.com/personal/vd3712rv_minnstate_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fvd3712rv%5Fminnstate%5Fedu%2FDocuments%2Fhlsp%5Fcandels%5Fhst%5Fwfc3%5Fgs%2Dtot%5Ff160w%5Fv1%2E0%5Fdrz%2Efits&parent=%2Fpersonal%2Fvd3712rv%5Fminnstate%5Fedu%2FDocuments&ga=1
 
 2. Move pears_south_tar.gz from downloads folder to h_pears_total_south in the RAGS_public_main folder
 
