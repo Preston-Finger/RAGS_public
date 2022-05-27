@@ -9,13 +9,7 @@ Setup:
 
 3. Move the downloaded zip file to where you want to work 
 
-4. enter command cd Downloads
-
-5. enter command ls
-
-6. see that the zip folder is there.
-
-7. unzip file by doing the command unzip "folder name"
+4. unzip file by doing the command unzip "folder name"
 
 Before Classifying
 
