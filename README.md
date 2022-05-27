@@ -1,7 +1,7 @@
 # RAGS
-Rapid Assessment of Galaxy Spectra
+## Rapid Assessment of Galaxy Spectra
 
-Setup:
+## Setup:
 
 1. Click green code button. 
 
@@ -11,7 +11,7 @@ Setup:
 
 4. unzip file by doing the command unzip "folder name"
 
-Before Classifying
+## Before Classifying
 
 1. Grab these files below from these links:
 
@@ -37,7 +37,7 @@ https://mnscu-my.sharepoint.com/personal/vd3712rv_minnstate_edu/_layouts/15/oned
 
 
 
-Classifying
+## Classifying
 
 1. From terminal in the RAGS_public_main folder type the command python RAGS.py  NOTE: or however you run python on your mac
 
@@ -52,7 +52,7 @@ Classifying
 6. When program is complete with the list of objects to classify a done message will appear. Hit enter and the program will close.
 
 
-After Classifying
+## After Classifying
 
 1. In the users folder you will see south_Classification_XXX.txt (or north depending on which set classifying) and the XXX being the initials of the user. 
 
