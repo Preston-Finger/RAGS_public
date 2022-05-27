@@ -15,11 +15,11 @@
 
 1. Grab these files below from these links:
 
-Pears South tar file
+Pears South Spectra Tarball:
  
 https://mnscu-my.sharepoint.com/:u:/g/personal/vd3712rv_minnstate_edu/EcDHQoD1jRhKgwO3vPVOh5QBCAWRPcM823w68LcDkRlCKA?e=7opo2x
 
-and the Goods south mosaic
+Goods South mosaic:
  
 https://mnscu-my.sharepoint.com/:u:/g/personal/vd3712rv_minnstate_edu/ERrASBQm1ORLhWI3tIst-zgBCuM9f9OagtaEngtxuv0ezA?e=PsDm0W
 
