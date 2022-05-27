@@ -24,7 +24,7 @@ Goods South mosaic:
 https://mnscu-my.sharepoint.com/:u:/g/personal/vd3712rv_minnstate_edu/ERrASBQm1ORLhWI3tIst-zgBCuM9f9OagtaEngtxuv0ezA?e=PsDm0W
 
 
-2. Move pears_south_tar.gz from downloads folder to h_pears_total_south in the RAGS_public_main folder
+2. Move Pears South Spectra Tarball from downloads folder to h_pears_total_south in the RAGS_public_main folder
 
 3. On mac open a terminal and navigate to the h_pears_total_south folder and type ls to confirm pears_south_tar.gz is there
 
