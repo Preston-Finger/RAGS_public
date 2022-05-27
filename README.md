@@ -1,6 +1,24 @@
 # RAGS
 Rapid Assessment of Galaxy Spectra
 
+Setup:
+
+0. Click on click link. 
+
+Click green code button. 
+
+Download zip. 
+
+On mac click or find the terminal in apps. 
+
+enter cd Downloads
+
+do ls
+
+see that the zip folder is there.
+
+unzip by doing the command unzip "folder name"
+
 Before Classifying
 
 1. Email: michael.rutkowski@mnsu.edu to get pears_south_tar.gz, pears_north_tar.gz and hlsp_candels_hst_wfc3_gs-tot_f160w_v1.0_drz.fits
