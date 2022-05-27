@@ -3,10 +3,16 @@
 
 ## Necessary Imports
 
-aplpy
-matplotlib
-numpy
-astropy
+aplpy, 
+matplotlib, 
+numpy, 
+astropy, 
+PIL,
+tkinter,
+screeninfo, 
+math,
+os and
+time
 
 ## Setup:
 
