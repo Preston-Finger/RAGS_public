@@ -1,6 +1,13 @@
 # RAGS
 ## Rapid Assessment of Galaxy Spectra
 
+## Necessary Imports
+
+aplpy
+matplotlib
+numpy
+astropy
+
 ## Setup:
 
 1. Click green code button. 
