@@ -2,7 +2,7 @@
 ## Rapid Assessment of Galaxy Spectra
 
 ## Necessary Imports
-
+### This was run using anaconda with astroconda repository
 aplpy, 
 matplotlib, 
 numpy, 
