@@ -64,4 +64,4 @@ https://mnscu-my.sharepoint.com/:u:/g/personal/vd3712rv_minnstate_edu/ERrASBQm1O
 
 3. Send this file to ---> michael.rutkowski@mnsu.edu
 
-Thank you1
+Thank you!
