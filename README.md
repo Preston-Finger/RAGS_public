@@ -7,7 +7,7 @@ Setup:
 
 2. Download zip. 
 
-3. On mac click or find the terminal in apps. 
+3. Move the downloaded zip file to where you want to work 
 
 4. enter command cd Downloads
 
