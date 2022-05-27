@@ -30,16 +30,7 @@ https://mnscu-my.sharepoint.com/:u:/g/personal/vd3712rv_minnstate_edu/ERrASBQm1O
 
    Move hlsp_candels_hst_wfc3_gs-tot_f160w_v1.0_drz.fits to master_files folder in RAGS_public_main folder
 
-
-3. On mac open a terminal and navigate to the h_pears_total_south folder and type ls to confirm pears_south_tar.gz is there
-
-4. enter in the command tar -xvzf h_pears_total_south_tar.gz
-
-5. The file will unzipped and the .fits files will be there. 
-
-6. Repeat these steps with the pears_north_tar.gz
-
-7. Move hlsp_candels_hst_wfc3_gs-tot_f160w_v1.0_drz.fits to master_files folder in RAGS_public_main folder
+3. Untar the Pears South Spectra Tarball in the current directory
 
 
 
