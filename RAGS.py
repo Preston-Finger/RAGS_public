@@ -1,4 +1,3 @@
-
 """
  Preston Mitchell Finger
  Minnesota State University, Mankato
@@ -18,12 +17,13 @@ import math
 import os
 #import sys, pdb
 #import pdb
+#import pdb
 import pdb
 
 import tkinter.ttk
 
 import numpy as np
-from glob import glob
+#from glob import glob
 import time
 
 #import importlib  ## utility in importlib.reload(insp) when debugging
@@ -31,7 +31,7 @@ import time
 import aplpy
 
 #---------------------------------- Recent additions ---------------------------------------
-import timeit       # PMF used to see how long things take
+#import timeit       # PMF used to see how long things take
 import logging
 
 # ---------------------------------------Tkinter for GUI----------------------------------
@@ -44,7 +44,7 @@ from screeninfo import get_monitors
 # ----------------------------------------Matplotlib--------------------------------------
 import matplotlib
 import matplotlib.pyplot as plt
-from matplotlib.figure import Figure
+#from matplotlib.figure import Figure
 matplotlib.use('TkAgg')
 from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg, NavigationToolbar2Tk)
 
@@ -53,8 +53,8 @@ import matplotlib.gridspec as gridspec
 #-----------------------------------------Astropy------------------------------------------
 import astropy.io.fits as fits
 from astropy.wcs import WCS as WCSa
-from astropy.coordinates import SkyCoord
-from astropy import units as u
+#from astropy.coordinates import SkyCoord
+#from astropy import units as u
 from astropy.io import ascii
 #from matplotlib.gridspec import GridSpec
 
@@ -95,8 +95,8 @@ def plot_object(specid_, ra_, dec_, z_match1,Imag,Imag_error, passed):
     matplotlib.rcParams['keymap.save'] ='x'
 
     # read the img
-    sci = 'master_files/hlsp_candels_hst_wfc3_gs-tot_f160w_v1.0_drz.fits'
-    #sci = 'master_files/hlsp_candels_hst_wfc3_gn-tot-60mas_f160w_v1.0_drz_nosip.fits'  # north nosip
+    #sci = 'master_files/hlsp_candels_hst_wfc3_gs-tot_f160w_v1.0_drz.fits'
+    sci = 'master_files/hlsp_candels_hst_wfc3_gn-tot-60mas_f160w_v1.0_drz_nosip.fits'  # north nosip
     img = fits.open(sci)
     header = img[0].header
     data = img[0].data
@@ -110,7 +110,7 @@ def plot_object(specid_, ra_, dec_, z_match1,Imag,Imag_error, passed):
 
     mnimg = np.mean(data[int(x1 - 10):int(x1 + 10), int(y1 - 10):int(y1 + 10)])
     # spec=fits.open('TESTSPEC/h_udf_wfc_id'+str(specid_)+'.fits')
-    spec = fits.open('h_pears_total_south/h_pears_s_id' + str(specid_) + '.fits')
+    spec = fits.open('h_pears_total_north/h_pears_n_id' + str(specid_) + '.fits')
 
     wave, flux, ferror = spec[1].data['LAMBDA'], spec[1].data['FLUX'], spec[1].data['FERROR']
     #if len(wave) == 0:
@@ -168,6 +168,19 @@ def plot_object(specid_, ra_, dec_, z_match1,Imag,Imag_error, passed):
 
             plt.axvline(rsline, color='r', linestyle='--')  # or plt.axvline(rsline,'#008000') the # is a color hex value
             plt.fill_between([rsline-100, rsline+100], np.min(flux), np.max(flux), alpha=0.5)
+
+            # PMF Hard coding for Heii 1640 Angstroms
+
+            he2line = 1640. * (1+z_match1)
+            smreg = np.where((wave > he2line-20) & (wave < he2line+20))
+            print(smreg, flux[smreg], type(flux[smreg]))
+            pdb.set_trace()
+            if flux[smreg].size != 0:
+                ax2.set_xlim(rsline - 2500, rsline + 1500)
+                plt.axvline(he2line, color='c',
+                        linestyle='--')  # or plt.axvline(rsline,'#008000') the # is a color hex value
+                plt.fill_between([he2line - 20, he2line + 20], np.min(flux), np.max(flux), alpha=0.5)
+
             # turned off but might be useful
             # plt.fill_between([rsline-500,rsline+500],[np.min(flux),np.min(flux)],[np.max(flux),np.max(flux)],color='g',alpha=0.1)
             plt.subplots_adjust(right=1.1)
@@ -251,9 +264,9 @@ def inspect_objs():
     label_directions = Label(text="Click 'a' for yes,  'n' for no  and 's' for maybe", font=("Times", 20))
     label_directions.grid(row=1, sticky=W)
 
-    objid_unique, racks, dacks, zacks, Imag, Imag_error, c = get_galaxies("RAGS_input_dir/south_spectrum_matches.dat")
+    objid_unique, racks, dacks, zacks, Imag, Imag_error, c = get_galaxies("RAGS_input_dir/north_spectrum_matches.dat")
 
-    speclist = "RAGS_input_dir/south_spectrum_matches.input"
+    speclist = "RAGS_input_dir/north_spectrum_matches.input"
     fins = ascii.read(speclist, names=['fnm'])
 
     donefile = 'done_%s' % user_name
@@ -435,7 +448,7 @@ def get_user():
     hide_widget(user_name_button)
     hide_widget((user_name))
 
-    file_exists('users/south_Classification_%s.txt' %write_name)
+    file_exists('users/north_Classification_%s.txt' %write_name)
 
     inspect_object.grid(row=0,column =0, pady=20)
 
@@ -475,7 +488,7 @@ def write_to_file(tpl, classification):
     canvas.get_tk_widget().grid_remove()
     window.update()
 
-    user_file = open(('users/south_Classification_%s.txt' % write_name), "a+")
+    user_file = open(('users/north_Classification_%s.txt' % write_name), "a+")
     user_file.write(str(line))
     user_file.write("\n")
     user_file.close()
