@@ -167,11 +167,7 @@ def plot_object(specid_, ra_, dec_, z_match1,Imag,Imag_error, passed):
 
             popt, pcov = curve_fit(func, waver_, fluxr_)
             perr = np.sqrt(np.diag(pcov))
-            print(waver_)
-            print(pcov)
-            print(perr)
-            print(fluxr_)
-            print_window(str(perr))
+
             ax2.plot(wave, func(wave, *popt), color='g')
             ax2.scatter(waver_, func(waver_, *popt), color='r')
 
@@ -526,7 +522,6 @@ global canvas
 canvas = FigureCanvasTkAgg(fig, master=window)
 canvas.draw()
 canvas.get_tk_widget().grid(row =2, column=0,sticky=W, columnspan=40)
-
 
 print_window("Enter in your 3 initials")
 
